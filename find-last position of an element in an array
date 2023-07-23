@@ -1,0 +1,39 @@
+=>first check element present if it present take it is an ans and to further check move towards left side if any other value equals to our key
+=>last check element present if it is present  further check for leftside part 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+____________________________________FIRST PART O(logn)+SECOND PART O(logn)__________________________________________________________________________________________________
+---------------------------------------------------------CODE------------------------------------------------------------------------------------------------------
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def firstAndLastPosition(arr, n, k):
+
+    # Write your code here
+    first=-1
+    last=-1
+    low=0
+    high=n-1
+    while low<=high:
+        mid=(low+high)//2 
+        if arr[mid]==k:
+            first=mid
+            high=mid-1 
+        elif arr[mid]>k:
+            high=mid-1
+        else:
+           low=mid+1
+    low=0
+    high=n-1 
+    while low<=high:
+        mid=(low+high)//2
+        if arr[mid]==k:
+            last=mid
+            low=mid+1 
+        elif arr[mid]>k:
+            high=mid-1
+        else:
+            low=mid+1 
+    return first,last
+----------------------------------------------------another approach by using lower bound and upper bound to check ------------------------------------------------
